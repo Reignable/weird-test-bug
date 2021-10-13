@@ -1,4 +1,4 @@
-import fetchMock from "jest-fetch-mock"; // 👈 Uncomment to break
+// import fetchMock from "jest-fetch-mock"; // 👈 Uncomment to break
 import validate from "./validate";
 
 describe("validate", () => {
