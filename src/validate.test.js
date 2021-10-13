@@ -1,4 +1,4 @@
-// import fetchMock from "jest-fetch-mock"; // 👈 Uncomment to break
+import fetchMock from "jest-fetch-mock"; // 👈 Uncomment to break
 import validate from "./validate";
 
 describe("validate", () => {
@@ -18,8 +18,8 @@ describe("validate", () => {
 
     const result = await validate(testFile);
 
-    expect(result).toMatchInlineSnapshot(
-      `"Invalid file format. Please upload a file according to the guidelines!"`
+    expect(result).toBe(
+      `Invalid file format. Please upload a file according to the guidelines!`
     );
   });
 
@@ -29,8 +29,8 @@ describe("validate", () => {
     const result = await validate(testFile);
 
     expect(result).not.toBeFalsy();
-    expect(result).toMatchInlineSnapshot(
-      `"The uploaded file is empty, therefore we can not show anything on the map. Please fill it with data and start the upload process again. We are not saving this file so you don’t have to worry about it."`
+    expect(result).toBe(
+      `The uploaded file is empty, therefore we can not show anything on the map. Please fill it with data and start the upload process again. We are not saving this file so you don’t have to worry about it.`
     );
   });
 
@@ -39,8 +39,6 @@ describe("validate", () => {
 
     const result = await validate(testFile);
 
-    expect(result).toMatchInlineSnapshot(
-      `"Must include latitude and longitude headers"`
-    );
+    expect(result).toBe(`Must include latitude and longitude headers`);
   });
 });
